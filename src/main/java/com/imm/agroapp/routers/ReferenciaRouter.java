@@ -1,6 +1,5 @@
 package com.imm.agroapp.routers;
 
-import com.imm.agroapp.handlers.PuntoControlHandler;
 import com.imm.agroapp.handlers.ReferenciaHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
