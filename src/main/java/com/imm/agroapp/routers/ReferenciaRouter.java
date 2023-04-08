@@ -18,19 +18,22 @@ public class ReferenciaRouter {
     public RouterFunction<ServerResponse> ReferenciaRoute(ReferenciaHandler referenciaHandler) {
         return RouterFunctions
                 .route(
-                        GET("/comarques/")
-                                .and(accept(APPLICATION_JSON)), referenciaHandler::listComarques)
+                    GET("/comarques/")
+                            .and(accept(APPLICATION_JSON)), referenciaHandler::listComarques)
                 .andRoute(
-                        GET("/municipis/")
-                                .and(accept(APPLICATION_JSON)), referenciaHandler::listMunicipis)
+                    GET("/municipis/")
+                            .and(accept(APPLICATION_JSON)), referenciaHandler::listMunicipis)
                 .andRoute(
-                        GET("/simbols/")
-                                .and(accept(APPLICATION_JSON)), referenciaHandler::listSimbols)
+                    GET("/simbols/")
+                            .and(accept(APPLICATION_JSON)), referenciaHandler::listSimbols)
                 .andRoute(
-                        GET("/variablesMeteo/")
-                                .and(accept(APPLICATION_JSON)), referenciaHandler::listVariables)
+                    GET("/variablesMeteo/")
+                            .and(accept(APPLICATION_JSON)), referenciaHandler::listVariables)
                 .andRoute(
-                        GET("/estacions/")
-                                .and(accept(APPLICATION_JSON)), referenciaHandler::listEstacions);
+                    GET("/estacions/")
+                            .and(accept(APPLICATION_JSON)), referenciaHandler::listEstacions)
+                .andRoute(
+                    GET("/estacions/{codiMunicipi}")
+                            .and(accept(APPLICATION_JSON)), referenciaHandler::getEstacionsByMunicipi);
     }
 }

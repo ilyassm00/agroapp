@@ -49,4 +49,9 @@ public class ReferenciaServiceImpl implements ReferenciaService {
     public Flux<Estacio> getEstacions() {
         return estacioRepository.findAll();
     }
+
+    @Override
+    public Flux<Estacio> getEstacionsByMunicipi(Integer codiMunicipi) {
+        return estacioRepository.findAllByMunicipi_Codi(codiMunicipi);
+    }
 }

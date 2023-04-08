@@ -14,4 +14,6 @@ public interface ReferenciaService {
     Flux<Variable> getVariables();
 
     Flux<Estacio> getEstacions();
+
+    Flux<Estacio> getEstacionsByMunicipi(Integer codiMunicipi);
 }

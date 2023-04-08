@@ -1,5 +1,6 @@
 package com.imm.agroapp.handlers;
 
+import com.imm.agroapp.entities.apimeteo.prediccioUvi.PrediccioUviMunicipal;
 import com.imm.agroapp.entities.apimeteo.referencia.*;
 import com.imm.agroapp.services.apimeteo.ReferenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,4 +46,12 @@ public class ReferenciaHandler {
                 .contentType(APPLICATION_JSON)
                 .body(referenciaService.getEstacions(), Estacio.class);
     }
+
+    public Mono<ServerResponse> getEstacionsByMunicipi(ServerRequest serverRequest) {
+        Integer codiMunicipi = Integer.valueOf(serverRequest.pathVariable("codiMunicipi"));
+        return ServerResponse.ok()
+                .contentType(APPLICATION_JSON)
+                .body(referenciaService.getEstacionsByMunicipi(codiMunicipi), Estacio.class);
+    }
+
 }
