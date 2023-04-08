@@ -1,6 +1,5 @@
 package com.imm.agroapp.handlers;
 
-import com.imm.agroapp.entities.apimeteo.prediccioUvi.PrediccioUviMunicipal;
 import com.imm.agroapp.entities.apimeteo.referencia.*;
 import com.imm.agroapp.services.apimeteo.ReferenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
