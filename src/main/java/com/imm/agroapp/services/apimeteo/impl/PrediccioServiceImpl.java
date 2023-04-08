@@ -1,5 +1,6 @@
 package com.imm.agroapp.services.apimeteo.impl;
 
+import com.imm.agroapp.entities.apimeteo.prediccioDiaria.PrediccioDiariaMunicipal;
 import com.imm.agroapp.entities.apimeteo.prediccioHoraria.PrediccioHorariaMunicipal;
 import com.imm.agroapp.services.apimeteo.PrediccioService;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,5 +26,15 @@ public class PrediccioServiceImpl implements PrediccioService {
                 .retrieve()
                 .bodyToMono(PrediccioHorariaMunicipal.class);
 
+    }
+
+    @Override
+    public Mono<PrediccioDiariaMunicipal> findPrediccioDiariaMunicipal(String codiMunicipi) {
+        WebClient webClient = WebClient.create(host);
+        return webClient.get()
+                .uri("/municipal/" + codiMunicipi)
+                .header("x-api-key", apiKey)
+                .retrieve()
+                .bodyToMono(PrediccioDiariaMunicipal.class);
     }
 }
