@@ -22,6 +22,9 @@ public class PrediccioRouter {
                             .and(accept(APPLICATION_JSON)), prediccioHandler::findPrediccioHorariaMunicipal)
                 .andRoute(
                     GET("/prediccioDiariaMunicipal/{codiMunicipi}")
-                            .and(accept(APPLICATION_JSON)), prediccioHandler::findPrediccioDiariaMunicipal);
+                            .and(accept(APPLICATION_JSON)), prediccioHandler::findPrediccioDiariaMunicipal)
+                .andRoute(
+                    GET("/prediccioUviMunicipal/{codiMunicipi}")
+                            .and(accept(APPLICATION_JSON)), prediccioHandler::findPrediccioUviMunicipal);
     }
 }
