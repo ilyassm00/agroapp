@@ -1,6 +1,7 @@
 package com.imm.agroapp.handlers;
 
-import com.imm.agroapp.entities.apimeteo.referencia.*;
+import com.imm.agroapp.entities.apimeteo.prediccioDiaria.PrediccioDiariaMunicipal;
+import com.imm.agroapp.entities.apimeteo.prediccioHoraria.PrediccioHorariaMunicipal;
 import com.imm.agroapp.services.apimeteo.PrediccioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,6 +21,13 @@ public class PrediccioHandler {
         String codiMunicipi = serverRequest.pathVariable("codiMunicipi");
         return ServerResponse.ok()
                 .contentType(APPLICATION_JSON)
-                .body(prediccioService.findPrediccioHorariaMunicipal(codiMunicipi), Comarca.class);
+                .body(prediccioService.findPrediccioHorariaMunicipal(codiMunicipi), PrediccioHorariaMunicipal.class);
+    }
+
+    public Mono<ServerResponse> findPrediccioDiariaMunicipal(ServerRequest serverRequest) {
+        String codiMunicipi = serverRequest.pathVariable("codiMunicipi");
+        return ServerResponse.ok()
+                .contentType(APPLICATION_JSON)
+                .body(prediccioService.findPrediccioDiariaMunicipal(codiMunicipi), PrediccioDiariaMunicipal.class);
     }
 }

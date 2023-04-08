@@ -18,7 +18,10 @@ public class PrediccioRouter {
     public RouterFunction<ServerResponse> PrediccioRoute(PrediccioHandler prediccioHandler) {
         return RouterFunctions
                 .route(
-                        GET("/prediccioHorariaMunicipal/{codiMunicipi}")
-                                .and(accept(APPLICATION_JSON)), prediccioHandler::findPrediccioHorariaMunicipal);
+                    GET("/prediccioHorariaMunicipal/{codiMunicipi}")
+                            .and(accept(APPLICATION_JSON)), prediccioHandler::findPrediccioHorariaMunicipal)
+                .andRoute(
+                    GET("/prediccioDiariaMunicipal/{codiMunicipi}")
+                            .and(accept(APPLICATION_JSON)), prediccioHandler::findPrediccioDiariaMunicipal);
     }
 }
