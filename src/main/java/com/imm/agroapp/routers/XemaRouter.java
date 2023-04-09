@@ -18,10 +18,10 @@ public class XemaRouter {
     public RouterFunction<ServerResponse> XemaRoute(XemaHandler xemaHandler) {
         return RouterFunctions
                 .route(
-                    GET("/estacions/{codiMunicipi}/variables")
+                    GET("/estacions/{codiEstacio}/variables")
                             .and(accept(APPLICATION_JSON)), xemaHandler::findVariablesMesuradesEstacio)
                 .andRoute(
-                    GET("/estacions/{codiMunicipi}/multiVariables")
+                    GET("/estacions/{codiEstacio}/multiVariables")
                             .and(accept(APPLICATION_JSON)), xemaHandler::findMultiVariablesMesuradesEstacio);
     }
 }

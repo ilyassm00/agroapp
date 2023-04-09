@@ -18,16 +18,16 @@ public class XemaHandler {
     private XemaService xemaService;
 
     public Mono<ServerResponse> findVariablesMesuradesEstacio(ServerRequest serverRequest) {
-        String codiMunicipi = serverRequest.pathVariable("codiMunicipi");
+        String codiEstacio = serverRequest.pathVariable("codiEstacio");
         return ServerResponse.ok()
                 .contentType(APPLICATION_JSON)
-                .body(xemaService.findVariablesMesuradesEstacio(codiMunicipi), VariablesEstacio.class);
+                .body(xemaService.findVariablesMesuradesEstacio(codiEstacio), VariablesEstacio.class);
     }
 
     public Mono<ServerResponse> findMultiVariablesMesuradesEstacio(ServerRequest serverRequest) {
-        String codiMunicipi = serverRequest.pathVariable("codiMunicipi");
+        String codiEstacio = serverRequest.pathVariable("codiEstacio");
         return ServerResponse.ok()
                 .contentType(APPLICATION_JSON)
-                .body(xemaService.findMultiVariablesMesuradesEstacio(codiMunicipi), MultiVariableMesurada.class);
+                .body(xemaService.findMultiVariablesMesuradesEstacio(codiEstacio), MultiVariableMesurada.class);
     }
 }
