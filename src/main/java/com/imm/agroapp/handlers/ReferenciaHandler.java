@@ -53,4 +53,38 @@ public class ReferenciaHandler {
                 .body(referenciaService.getEstacionsByMunicipi(codiMunicipi), Estacio.class);
     }
 
+    public Mono<ServerResponse> getMunicipisByComarca(ServerRequest serverRequest) {
+        Integer codiComarca = Integer.valueOf(serverRequest.pathVariable("codiComarca"));
+        return ServerResponse.ok()
+                .contentType(APPLICATION_JSON)
+                .body(referenciaService.getMunicipisByComarca(codiComarca), Municipi.class);
+    }
+
+    public Mono<ServerResponse> getMunicipiByCod(ServerRequest serverRequest) {
+        Integer codiMunicipi = Integer.valueOf(serverRequest.pathVariable("codiMunicipi"));
+        return ServerResponse.ok()
+                .contentType(APPLICATION_JSON)
+                .body(referenciaService.getMunicipiByCod(codiMunicipi), Municipi.class);
+    }
+
+    public Mono<ServerResponse> getVariableByCodi(ServerRequest serverRequest) {
+        Integer codiVariable = Integer.valueOf(serverRequest.pathVariable("codiVariable"));
+        return ServerResponse.ok()
+                .contentType(APPLICATION_JSON)
+                .body(referenciaService.getVariableByCodi(codiVariable), Variable.class);
+    }
+
+    public Mono<ServerResponse> getEstacioByCodi(ServerRequest serverRequest) {
+        String codiEstacio = serverRequest.pathVariable("codiEstacio");
+        return ServerResponse.ok()
+                .contentType(APPLICATION_JSON)
+                .body(referenciaService.getEstacioByCodi(codiEstacio), Estacio.class);
+    }
+
+    public Mono<ServerResponse> getEstatCelByCodi(ServerRequest serverRequest) {
+        Integer codi = Integer.valueOf(serverRequest.pathVariable("codi"));
+        return ServerResponse.ok()
+                .contentType(APPLICATION_JSON)
+                .body(referenciaService.getEstatCelByCodi(codi), SimbolValors.class);
+    }
 }
