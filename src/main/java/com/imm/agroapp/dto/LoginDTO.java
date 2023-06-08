@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @Data
 public class LoginDTO {
 
-    @NotBlank(message = "username is mandatory")
+    @NotBlank(message = "El nom d'usuari és obligatori")
     private String username;
 
-    @NotBlank(message = "password is mandatory")
+    @NotBlank(message = "La contrasenya és obligatòria")
     private String password;
 }

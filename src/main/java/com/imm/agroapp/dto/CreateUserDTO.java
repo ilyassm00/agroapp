@@ -14,13 +14,13 @@ import java.util.List;
 @NoArgsConstructor
 public class CreateUserDTO {
 
-    @NotBlank(message = "username is mandatory")
+    @NotBlank(message = "El nom d'usuari és obligatori")
     private String username;
 
-    @NotBlank(message = "email is mandatory")
+    @NotBlank(message = "L'email és obligatori")
     @Email(message = "email not valid")
     private String email;
 
-    @NotBlank(message = "password is mandatory")
+    @NotBlank(message = "La contrasenya és obligatòria")
     private String password;
 }

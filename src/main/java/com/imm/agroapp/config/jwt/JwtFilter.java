@@ -24,9 +24,9 @@ public class JwtFilter implements WebFilter {
             return chain.filter(exchange);
         String auth = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
         if(auth == null)
-            return Mono.error(new CustomException(HttpStatus.BAD_REQUEST, "no token was found"));
+            return Mono.error(new CustomException(HttpStatus.BAD_REQUEST, "No s'ha trobat token"));
         if(!auth.startsWith("Bearer "))
-            return Mono.error(new CustomException(HttpStatus.BAD_REQUEST, "invalid auth"));
+            return Mono.error(new CustomException(HttpStatus.BAD_REQUEST, "Autentificacio invalida"));
         String token = auth.replace("Bearer ", "");
         exchange.getAttributes().put("token", token);
         return chain.filter(exchange);

@@ -44,15 +44,15 @@ public class JwtProvider {
             Jwts.parserBuilder().setSigningKey(getKey(secret)).build().parseClaimsJws(token).getBody();
             return true;
         } catch (ExpiredJwtException e) {
-            log.error("token expired");
+            log.error("Token expirat");
         } catch (UnsupportedJwtException e) {
-            log.error("token unsupported");
+            log.error("Token no suportat");
         } catch (MalformedJwtException e) {
-            log.error("token malformed");
+            log.error("Token malformat");
         } catch (SignatureException e) {
-            log.error("bad signature");
+            log.error("Mala firma");
         } catch (IllegalArgumentException e) {
-            log.error("illegal args");
+            log.error("Arguments ilegals");
         }
         return false;
     }

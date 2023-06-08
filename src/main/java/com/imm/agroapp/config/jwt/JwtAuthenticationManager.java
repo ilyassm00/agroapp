@@ -28,7 +28,7 @@ public class JwtAuthenticationManager implements ReactiveAuthenticationManager {
         return Mono.just(authentication)
                 .map(auth -> jwtProvider.getClaims(auth.getCredentials().toString()))
                 .log()
-                .onErrorResume(e -> Mono.error(new CustomException(HttpStatus.UNAUTHORIZED, "bad token")))
+                .onErrorResume(e -> Mono.error(new CustomException(HttpStatus.UNAUTHORIZED, "Token malformat")))
                 .map(claims -> new UsernamePasswordAuthenticationToken(
                         claims.getSubject(),
                         null,
