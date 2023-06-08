@@ -18,7 +18,7 @@ public class CreateUserDTO {
     private String username;
 
     @NotBlank(message = "L'email és obligatori")
-    @Email(message = "email not valid")
+    @Email(message = "L'email no és vàlid")
     private String email;
 
     @NotBlank(message = "La contrasenya és obligatòria")
