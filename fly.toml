@@ -1,0 +1,20 @@
+app = "agrostats-api"
+primary_region = "mad"
+
+[env]
+  JAVA_OPTS = "-XX:MaxRAM=70m"
+  SERVER_FORWARD_HEADERS_STRATEGY = "NATIVE"
+  SPRING_PROFILES_ACTIVE = "flyio"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 8080
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+    force_https = true
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
