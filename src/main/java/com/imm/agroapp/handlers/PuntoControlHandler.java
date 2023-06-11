@@ -26,28 +26,4 @@ public class PuntoControlHandler {
                 .body(puntoControlService.findAll(), PuntoControl.class)
                 .switchIfEmpty(notFound);
     }
-
-    public Mono<ServerResponse> listRemotas(ServerRequest serverRequest) {
-        return ServerResponse.ok()
-                .contentType(APPLICATION_JSON)
-                .body(puntoControlService.findAllDistinctRemotas(), String.class)
-                .switchIfEmpty(notFound);
-    }
-
-    public Mono<ServerResponse> listVariablesByRemota(ServerRequest serverRequest) {
-        String remota = serverRequest.pathVariable("remota");
-        return ServerResponse.ok()
-                .contentType(APPLICATION_JSON)
-                .body(puntoControlService.findVariablesByRemota(remota), String.class)
-                .switchIfEmpty(notFound);
-    }
-
-    public Mono<ServerResponse> getPuntoControlByRemotaAndVariable(ServerRequest serverRequest) {
-        String remota = serverRequest.pathVariable("remota");
-        String variable = serverRequest.pathVariable("variable");
-        return ServerResponse.ok()
-                .contentType(APPLICATION_JSON)
-                .body(puntoControlService.findPuntoControlByRemotaAndVariable(remota, variable), PuntoControl.class)
-                .switchIfEmpty(notFound);
-    }
 }

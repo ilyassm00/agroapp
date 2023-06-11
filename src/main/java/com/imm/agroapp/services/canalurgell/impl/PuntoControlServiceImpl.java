@@ -18,19 +18,4 @@ public class PuntoControlServiceImpl implements PuntoControlService {
     public Flux<PuntoControl> findAll() {
         return puntoControlReactiveRepository.findAll();
     }
-
-    @Override
-    public Flux<String> findAllDistinctRemotas() {
-        return puntoControlReactiveRepository.findAll().map(PuntoControl::getRemota).distinct();
-    }
-
-    @Override
-    public Flux<String> findVariablesByRemota(String remota) {
-        return puntoControlReactiveRepository.findAllByRemota(remota).map(PuntoControl::getVariable);
-    }
-
-    @Override
-    public Flux<PuntoControl> findPuntoControlByRemotaAndVariable(String remota, String variable) {
-        return puntoControlReactiveRepository.findAllByRemotaAndVariable(remota, variable);
-    }
 }

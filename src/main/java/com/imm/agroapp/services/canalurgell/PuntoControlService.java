@@ -6,10 +6,4 @@ import reactor.core.publisher.Flux;
 public interface PuntoControlService {
 
     Flux<PuntoControl> findAll();
-
-    Flux<String> findAllDistinctRemotas();
-
-    Flux<String> findVariablesByRemota(String remota);
-
-    Flux<PuntoControl> findPuntoControlByRemotaAndVariable(String remota, String variable);
 }

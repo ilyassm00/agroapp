@@ -8,14 +8,6 @@ public interface ReferenciaService {
 
     Flux<Comarca> getComarques();
 
-    Flux<Municipi> getMunicipis();
-
-    Flux<Simbol> getSimbols();
-
-    Flux<Variable> getVariables();
-
-    Flux<Estacio> getEstacions();
-
     Flux<Estacio> getEstacionsByMunicipi(Integer codiMunicipi);
 
     Flux<Municipi> getMunicipisByComarca(Integer codiComarca);
@@ -25,6 +17,4 @@ public interface ReferenciaService {
     Mono<Variable> getVariableByCodi(Integer codiVariable);
 
     Mono<Estacio> getEstacioByCodi(String codiEstacio);
-
-    Mono<SimbolValors> getEstatCelByCodi(Integer codi);
 }

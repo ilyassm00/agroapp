@@ -18,15 +18,6 @@ public class PuntoControlRouter {
         return RouterFunctions
                 .route(
                     GET("/puntosControl/")
-                            .and(accept(APPLICATION_JSON)), puntoControlHandler::listPuntosControl)
-                .andRoute(
-                    GET("/remotas/")
-                            .and(accept(APPLICATION_JSON)), puntoControlHandler::listRemotas)
-                .andRoute(
-                    GET("/variables/{remota}")
-                            .and(accept(APPLICATION_JSON)), puntoControlHandler::listVariablesByRemota)
-                .andRoute(
-                    GET("/puntoControl/{remota}/{variable}")
-                            .and(accept(APPLICATION_JSON)), puntoControlHandler::getPuntoControlByRemotaAndVariable);
+                            .and(accept(APPLICATION_JSON)), puntoControlHandler::listPuntosControl);
     }
 }

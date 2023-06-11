@@ -35,26 +35,6 @@ public class ReferenciaServiceImpl implements ReferenciaService {
     }
 
     @Override
-    public Flux<Municipi> getMunicipis() {
-        return municipiRepository.findAll();
-    }
-
-    @Override
-    public Flux<Simbol> getSimbols() {
-        return simbolRepository.findAll();
-    }
-
-    @Override
-    public Flux<Variable> getVariables() {
-        return variableRepository.findAll();
-    }
-
-    @Override
-    public Flux<Estacio> getEstacions() {
-        return estacioRepository.findAll();
-    }
-
-    @Override
     public Flux<Estacio> getEstacionsByMunicipi(Integer codiMunicipi) {
         return estacioRepository.findAllByMunicipi_Codi(codiMunicipi);
     }
@@ -77,10 +57,5 @@ public class ReferenciaServiceImpl implements ReferenciaService {
     @Override
     public Mono<Estacio> getEstacioByCodi(String codiEstacio) {
         return estacioRepository.findById(codiEstacio);
-    }
-
-    @Override
-    public Mono<SimbolValors> getEstatCelByCodi(Integer codi) {
-        return simbolValorsRepository.findSimbolValorsByCodi(codi);
     }
 }
