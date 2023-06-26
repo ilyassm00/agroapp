@@ -58,4 +58,9 @@ public class ReferenciaServiceImpl implements ReferenciaService {
     public Mono<Estacio> getEstacioByCodi(String codiEstacio) {
         return estacioRepository.findById(codiEstacio);
     }
+
+    @Override
+    public Mono<SimbolValors> getEstatCelByCodi(Integer codi) {
+        return simbolValorsRepository.findSimbolValorsByCodi(codi);
+    }
 }

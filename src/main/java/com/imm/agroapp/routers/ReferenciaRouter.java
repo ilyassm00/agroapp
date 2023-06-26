@@ -34,6 +34,9 @@ public class ReferenciaRouter {
                             .and(accept(APPLICATION_JSON)), referenciaHandler::getMunicipiByCod)
                 .andRoute(
                     GET("/estacions/{codiEstacio}")
-                            .and(accept(APPLICATION_JSON)), referenciaHandler::getEstacioByCodi);
+                            .and(accept(APPLICATION_JSON)), referenciaHandler::getEstacioByCodi)
+                .andRoute(
+                        GET("/estatCel/{codi}")
+                                .and(accept(APPLICATION_JSON)), referenciaHandler::getEstatCelByCodi);
     }
 }

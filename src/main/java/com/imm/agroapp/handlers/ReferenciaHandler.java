@@ -56,4 +56,11 @@ public class ReferenciaHandler {
                 .contentType(APPLICATION_JSON)
                 .body(referenciaService.getEstacioByCodi(codiEstacio), Estacio.class);
     }
+
+    public Mono<ServerResponse> getEstatCelByCodi(ServerRequest serverRequest) {
+        Integer codi = Integer.valueOf(serverRequest.pathVariable("codi"));
+        return ServerResponse.ok()
+                .contentType(APPLICATION_JSON)
+                .body(referenciaService.getEstatCelByCodi(codi), SimbolValors.class);
+    }
 }

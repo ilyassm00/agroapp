@@ -17,4 +17,6 @@ public interface ReferenciaService {
     Mono<Variable> getVariableByCodi(Integer codiVariable);
 
     Mono<Estacio> getEstacioByCodi(String codiEstacio);
+
+    Mono<SimbolValors> getEstatCelByCodi(Integer codi);
 }
